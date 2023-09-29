@@ -26,3 +26,8 @@ header{
   float: right;
   color: rgb(83, 83, 83);
 }
+
+.errore{
+  color: red;
+  font-weight: bold;
+}

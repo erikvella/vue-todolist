@@ -23,26 +23,35 @@
     <h1>TODO LIST APP</h1>
   </header>
 <div id="app">
+
+
+  <!-- parte dedicata all'input newTask -->
    <div class="container my-5 text-center  ">
-    <input class="new-task-area" type="text" placeholder="Inserire nuovo task">
-    <button class="btn btn-success ">Aggiungi</button>
-   </div>
+    <input 
+    @keyup.enter="addTask"
+    class="new-task-area" 
+    type="text" 
+    placeholder="Inserire nuovo task">
 
+
+    <!-- bottone che aggiunge un nuovo task -->
+    <button 
+    @click.stop="addTask"
+    class="btn btn-success ">Aggiungi</button>
+    <p v-if="isError" 
+    class="errore">Errore! Devi inserire almeno 3 caratteri</p>
+   </div>
+<!-- parte contenente la lista dei task -->
    <div class="container bg-grey">
-    <ul class="list-unstyled ">
-      <li class="single-task">
-        <span>Fare la spesa</span>
+    <ul v-if="tasks.length > 0" class="list-unstyled ">
+      <li class="single-task" v-for="task in tasks">
+        <span>{{ task }}</span>
         <i class="fa-solid fa-trash-can"></i>
       </li>
-      <li class="single-task ">
-        <span>Studiare VUE</span>
-        <i class="fa-solid fa-trash-can"></i>
-      </li>
-      <li class="single-task">
-        <span>Giocare a D2r</span>
-        <i class="fa-solid fa-trash-can"></i>
-      </li>
+      
     </ul>
+
+    <h2 v-else>Non ci sono task!</h2>
    </div>
 
 
@@ -51,7 +60,7 @@
 
 
 
-
+<!-- fine del div #app -->
 </div>
 
 
