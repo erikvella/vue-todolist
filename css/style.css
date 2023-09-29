@@ -1,0 +1,28 @@
+header{
+  color: blue;
+}
+
+.btn-success{
+  padding: 5px;
+}
+
+.new-task-area{
+  border-radius: 10px;
+  
+}
+
+.bg-grey{
+  background-color: rgb(217, 217, 217);
+  width: 60%;
+  border-radius: 15px;
+}
+
+.single-task{
+  border-bottom: 1px solid rgb(115, 115, 115);
+  padding: 15px;
+}
+
+.fa-solid{
+  float: right;
+  color: rgb(83, 83, 83);
+}
