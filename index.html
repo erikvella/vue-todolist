@@ -26,8 +26,9 @@
 
 
   <!-- parte dedicata all'input newTask -->
-   <div class="container my-5 text-center  ">
+   <div class="container my-5 text-center">
     <input 
+    v-model.trim="newTask"
     @keyup.enter="addTask"
     class="new-task-area" 
     type="text" 
@@ -36,17 +37,19 @@
 
     <!-- bottone che aggiunge un nuovo task -->
     <button 
-    @click.stop="addTask"
+    @click="addTask"
     class="btn btn-success ">Aggiungi</button>
     <p v-if="isError" 
-    class="errore">Errore! Devi inserire almeno 3 caratteri</p>
+    class="errore">Errore! Devi inserire almeno 5 caratteri</p>
    </div>
 <!-- parte contenente la lista dei task -->
-   <div class="container bg-grey">
+   <div class="container bg-grey p-4 ">
+
+
     <ul v-if="tasks.length > 0" class="list-unstyled ">
-      <li class="single-task" v-for="task in tasks">
+      <li @click="markTask" class="single-task" v-for="(task , index) in tasks">
         <span>{{ task }}</span>
-        <i class="fa-solid fa-trash-can"></i>
+        <i @click="removeTask " class="fa-solid fa-trash-can"></i>
       </li>
       
     </ul>

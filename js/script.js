@@ -7,23 +7,35 @@ createApp({
         'Fare la spesa',
         'Studiare Vue',
         'Giocare a D2r',
-       ]
+       ],
        newTask : '',
        isError : false,
+       done : false
     }
   },
   methods:{
     addTask(){
 
-      if(newTask.length < 3){
+      if(this.newTask.length < 5){
         this.isError = true;
       }else{
-       // unshift pusha e mette in cima il nuovo elemento
-       this.tasks.unshift(this.newTask)
-       // resetto il campo dell'input
-       this.newTask = '';
+        console.log(this.newTask);
+        this.tasks.unshift(this.newTask);
+        this.newTask ='';
+        this.isError = false;
+         
       }
-     
+   
+    },
+
+    removeTask(index){
+          this.tasks.splice(index , 1)
+    },
+
+    markTask(){
+      if(this.newTask){
+
+      }
     }
  
   },
