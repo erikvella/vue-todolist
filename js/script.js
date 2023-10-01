@@ -10,7 +10,8 @@ createApp({
        ],
        newTask : '',
        isError : false,
-       done : false
+       doneTask : '',
+       isDone : false
     }
   },
   methods:{
@@ -33,7 +34,7 @@ createApp({
     },
 
     markTask(){
-      if(this.newTask){
+      if(this.newTask.includes(doneTasks)){
 
       }
     }
