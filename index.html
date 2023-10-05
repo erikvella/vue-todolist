@@ -39,17 +39,19 @@
     <button 
     @click="addTask"
     class="btn btn-success ">Aggiungi</button>
-    <p v-if="isError" 
-    class="errore">Errore! Devi inserire almeno 5 caratteri</p>
+    <p 
+    class="errore">{{ errorMsg }}</p>
    </div>
 <!-- parte contenente la lista dei task -->
    <div class="container bg-grey p-4 ">
 
 
     <ul v-if="tasks.length > 0" class="list-unstyled ">
-      <li @click="markTask" class="single-task" v-for="(task , index) in tasks">
-        <span>{{ task }}</span>
-        <i @click="removeTask " class="fa-solid fa-trash-can"></i>
+      <li @click="task.done = !task.done" class="single-task" 
+          :class="{'done': task.done}"
+          v-for="(task , index) in tasks">
+        <span>{{ task.text }}</span>
+        <i @click.stop="removeTask(index)" class="fa-solid fa-trash-can"></i>
       </li>
       
     </ul>
