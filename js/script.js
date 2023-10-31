@@ -31,12 +31,17 @@ createApp({
     addTask(){
 
       if(this.newTask.length < 5){
-
+       this.writeErrors('Errore! Il task deve avere almeno 5 caratteri')
+       this.newTask = '';
       }else{
-        console.log(this.newTask);
-        this.tasks.unshift(this.newTask);
-        this.newTask ='';
-  
+        
+        this.newTaskObj ={
+          text : this.newTask,
+          done : false,
+        };
+       this.tasks.unshift(this.newTaskObj)
+
+       this.newTask = '';
          
       }
    
